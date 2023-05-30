@@ -9,15 +9,23 @@ export default {
     data() {
         return {
             serverUrl: 'http://localhost:8000',
-            projects: []
+            projects: [],
+            currentPage: 1,
+            lastPage: '',
         }
     },
     methods: {
-        getProjects() {
+        getProjects(apiPage) {
             console.log('ciao');
-            axios.get(`${this.serverUrl}/api/projects`)
+            axios.get(`${this.serverUrl}/api/projects`, {
+                params: {
+                    page: apiPage
+                }
+            })
                 .then(response => {
-                    this.projects = response.data.results;
+                    this.projects = response.data.results.data;
+                    this.currentPage = response.data.results.current_page;
+                    this.lastPage = response.data.results.last_page;
                     console.log(this.projects);
                 })
         },
@@ -26,7 +34,7 @@ export default {
         }
     },
     mounted() {
-        this.getProjects();
+        this.getProjects(1);
     },
 }
 </script>
@@ -39,6 +47,15 @@ export default {
                     :category="project.category" :client="project.client" />
             </div>
         </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><button class="page-link" @click="getProjects(currentPage - 1)"
+                        :class="{ 'disabled': currentPage == 1 }">Previous</button></li>
+                <li class="page-item"><button class="page-link" @click="getProjects(currentPage + 1)"
+                        :class="{ 'disabled': currentPage == lastPage }">Next</button></li>
+            </ul>
+        </nav>
     </div>
 </template>
 
