@@ -26,7 +26,7 @@ export default {
 
 <template>
     <div v-for="project in projects">
-        <h1>{{ project.title }}</h1>
+
 
     </div>
 </template>
