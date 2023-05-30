@@ -1,0 +1,36 @@
+<script>
+
+export default {
+    name: 'projectCard',
+    data() {
+        return {
+            serverUrl: 'http://localhost:8000',
+            projects: []
+        }
+    },
+    props: {
+        img: String,
+        title: String,
+        description: String,
+        category: String,
+        client: String,
+
+    }
+}
+</script>
+
+<template>
+    <div class="card mb-3">
+        <img :src="img" class="card-img-top" :alt="title">
+        <div class="card-body">
+            <h5 class="card-title">{{ title }}</h5>
+            <p class="card-text">{{ description }}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Category: {{ category }}</li>
+                <li class="list-group-item">Client: {{ client }}</li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<style scoped></style>

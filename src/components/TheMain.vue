@@ -1,7 +1,11 @@
 <script>
 import axios from 'axios';
+import projectCard from './projectCard.vue';
 export default {
     name: 'TheMain',
+    components: {
+        projectCard
+    },
     data() {
         return {
             serverUrl: 'http://localhost:8000',
@@ -16,6 +20,9 @@ export default {
                     this.projects = response.data.results;
                     console.log(this.projects);
                 })
+        },
+        getImagePath: function (img) {
+            return new URL(`../assets/${img}`, import.meta.url).href;
         }
     },
     mounted() {
@@ -25,9 +32,13 @@ export default {
 </script>
 
 <template>
-    <div v-for="project in projects">
-
-
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-3" v-for="project in   projects  ">
+                <projectCard :img="project.image" :title="project.title" :description="project.description"
+                    :category="project.category" :client="project.client" />
+            </div>
+        </div>
     </div>
 </template>
 

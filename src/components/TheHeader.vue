@@ -9,7 +9,16 @@ export default {
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <div class="logo_laravel d-flex h-100">
+                        <div class="d-flex align-items-center">
+                            <img id="logo-boolean"
+                                src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/Boolean/original.png?1623187562"
+                                alt="logo boolean">
+                            <h1>Boolfolio</h1>
+                        </div>
+                    </div>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
