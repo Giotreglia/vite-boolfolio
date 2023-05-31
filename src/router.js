@@ -13,7 +13,7 @@ const router = createRouter({
         },
         {
             path: '/contatti',
-            name: 'contact',
+            name: 'contacts',
             component: AppContacts
         },
         {
