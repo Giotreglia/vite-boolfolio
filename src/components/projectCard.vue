@@ -2,12 +2,6 @@
 
 export default {
     name: 'projectCard',
-    data() {
-        return {
-            serverUrl: 'http://localhost:8000',
-            projects: []
-        }
-    },
     props: {
         img: String,
         title: String,
