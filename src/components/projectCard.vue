@@ -8,6 +8,7 @@ export default {
         description: String,
         category: String,
         client: String,
+        slug: String
 
     }
 }
@@ -22,7 +23,12 @@ export default {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Category: {{ category }}</li>
                 <li class="list-group-item">Client: {{ client }}</li>
+                <li class="list-group-item">
+                    <router-link :to="{ name: 'project', params: { slug: slug } }"
+                        class="btn btn-primary">Dettagli</router-link>
+                </li>
             </ul>
+
         </div>
     </div>
 </template>

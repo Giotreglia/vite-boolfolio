@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from './pages/AppHome.vue';
 import AppContacts from './pages/AppContacts.vue';
 import ProjectList from './pages/ProjectList.vue';
+import projectShow from './pages/projectShow.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,6 +21,11 @@ const router = createRouter({
             path: '/portfolio',
             name: 'projects',
             component: ProjectList
+        },
+        {
+            path: '/portfolio/:slug',
+            name: 'project',
+            component: projectShow
         },
     ]
 });

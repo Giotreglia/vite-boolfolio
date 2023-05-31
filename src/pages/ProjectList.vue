@@ -45,7 +45,7 @@ export default {
         <div class="row py-5">
             <div class="col-3" v-for="project in   projects  ">
                 <projectCard :img="project.image" :title="project.title" :description="project.description"
-                    :category="project.category" :client="project.client" />
+                    :category="project.category" :client="project.client" :slug="project.slug" />
             </div>
         </div>
 
