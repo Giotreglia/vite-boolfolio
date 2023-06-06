@@ -9,13 +9,14 @@ export default {
                     routeName: 'home'
                 },
                 {
-                    label: 'Contatti',
-                    routeName: 'contacts'
-                },
-                {
                     label: 'Progetti',
                     routeName: 'projects'
                 },
+                {
+                    label: 'Contatti',
+                    routeName: 'contacts'
+                }
+
             ]
         }
     },

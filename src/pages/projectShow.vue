@@ -6,14 +6,18 @@ export default {
     data() {
         return {
             store,
-            project: []
+            project: null
         }
     },
     mounted() {
         const slug = this.$route.params.slug;
         axios.get(`${this.store.serverUrl}/api/project/${slug}`)
             .then(response => {
-                this.project = response.data.results;
+                if (response.data.succes) {
+                    this.project = response.data.results;
+                } else {
+                    this.$router.push({ name: 'not-found' });
+                }
             })
     },
 
@@ -25,7 +29,7 @@ export default {
     <div class="container">
         <div class="row justify-content-center">
 
-            <div class="col-3">
+            <div v-if="project" class="col-3">
                 <div class="card">
                     <img :src="project.image" class="card-img-top" :alt="project.title">
                     <div class="card-body">

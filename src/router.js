@@ -3,6 +3,8 @@ import AppHome from './pages/AppHome.vue';
 import AppContacts from './pages/AppContacts.vue';
 import ProjectList from './pages/ProjectList.vue';
 import projectShow from './pages/projectShow.vue';
+import NotFound from './pages/NotFound.vue';
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,6 +28,11 @@ const router = createRouter({
             path: '/portfolio/:slug',
             name: 'project',
             component: projectShow
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            component: NotFound
         },
     ]
 });
